@@ -96,7 +96,7 @@ Disaster recovery
 
 ## Usage 🏆
 
-TODO --> ask anyone from the staff how this can be carried out ?
+TODO --> 
 
 ## License 📛 
 
