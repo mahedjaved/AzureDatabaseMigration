@@ -118,7 +118,22 @@ For an example to see if the recovery was successful using the `Store` table sam
 
 Having setup the on-cloud backup database servers and being able to safe guard against data loss and corruption, we can be more confident on the security of our database. Though these can cover disaster recovery on a local scale within a region (e.g UK South), for scenerios where a disaster affects an entire region (e.g. power outtage) it is then necessary to have a seperate backup in a different geographical location such that during these events, a swift switch to the geographical database can in the long run minimize downtime. This is known as `failover` in geo-replication and is accomplished in this milesone. It is broken into two steps: setting the geographical backup and secondly testing the failover scenerio.
 
-* **Geo-Replication Server Setup** : First and foremost, a seperate server was setup that will act as a primary database once failover testing is performed. The geo-replication was perfomed by first adding a `replicas` in the Database Management section of the on-cloud backup Azure SQL Database as shown.
+* **Geo-Replication Server Setup** : First and foremost, a seperate server was setup that will act as a primary database once failover testing is performed. The geo-replication was perfomed by first adding a `replicas` in the Database Management section of the on-cloud backup Azure SQL Database as shown. 
+
+![Alt text](img/replica.png)
+
+A key reminder from other milestones is that the `mj-azure-mig-db` is the main production DB whereas the `mj-azure-mig-db_2023-12-03T16-00Z` is the restored version. The geo-replicas exist in the restored version of the Azure SQL database, the regio for which is set to US for this experiment.
+
+![Alt text](img/region.png)
+
+* **Failover Setup** : in order to initiate the failover, the server in the primary region (UK) was linked with the geo-replicated US server. The failover was setup as shown. 
+
+![Alt text](img/failover.png)
+
+Initialy, the UK server is set as the primary server and the US as the secondary. Once failover initiated, the roles are swaped as shown.
+
+![Alt text](img/failover_2.png)
+
 
 ---
 
