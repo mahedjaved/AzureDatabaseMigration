@@ -26,14 +26,11 @@ The following project simulates a typical migration scenerio. It mimics migratio
     * [Milestone 5](#milestone-5)
     * [Milestone 6](#milestone-6)
 
-  * [Usage](#usage-🏆)
+  * [License](#license-📛)
   
   * [Contributors](#contributors-😃)
 
   * [Questions](#questions)
-
-  * [License](#license-📛)
-  
   ## Milestones  💻
 
  ### Milestone 1
