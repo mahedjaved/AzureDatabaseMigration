@@ -8,15 +8,23 @@ Shifting data from one source to another (A to B) is an example of a data migrat
 
 A common migration process involves shifting data from on-premise to a cloud service. Several cloud providers offer superior data handling stratergies alongside security and access control. These services provide a much more attractive solution to companies then to developing on-hand softwares and tools which can be heavily involved and may waste companies resources and time since alot of it will be 'reinventing the wheel'
  
-The following project simulates a typical migration scenerio. It mimics migration to Azure Cloud services. The project is broken into 8 milestones. Each covering topics such as Azure Virtual Machine, Azure Entra ID for access control, Geo-replication and failover testing for backup security and Microsoft Entra ID for user access control.
+The following project simulates a typical migration scenerio. It mimics migration to Azure Cloud services. The project is broken into 8 milestones. Each covering topics such as Azure Virtual Machine, Azure Entra ID for access control, Geo-replication and failover testing for backup security and Microsoft Entra ID for user access control. The entire architecture of the cloud model developed in this project is shown below.
+
+
+## Cloud Architecture
+
+![Alt text](img/uml_diagram.png)
 
   ## Table of Contents 🗒
 
   * [Milestones](#milestones-💻)
 
-    * [Mileston 1](#mileston-1)
-    * [Mileston 2](#mileston-2)
-    * [Mileston 3](#mileston-3)
+    * [Milestone 1](#milestone-1)
+    * [Milestone 2](#milestone-2)
+    * [Milestone 3](#milestone-3)
+    * [Milestone 4](#milestone-4)
+    * [Milestone 5](#milestone-5)
+    * [Milestone 6](#milestone-6)
 
   * [Usage](#usage-🏆)
   
@@ -28,7 +36,7 @@ The following project simulates a typical migration scenerio. It mimics migratio
   
   ## Milestones  💻
 
- ### Mileston 1
+ ### Milestone 1
  
 This milestone mainly focused on the installation, setup and testing of the production environment in the form of an Azure Virtual Machines. The purpose is to setup an environment that will allow carrying out of the migration tasks in a safe and workable configurations without comprimising on-premise database and security. The key steps taken for this are highlighted as shown below:
 
@@ -40,7 +48,7 @@ This milestone mainly focused on the installation, setup and testing of the prod
 
 ---
 
- ### Mileston 2
+ ### Milestone 2
  
 In this milestone, the on-premie local DB (`AdventureWorks`) is migrated to the database in the Azure's cloud system via the Azure SQL Database services. This milestone is broken down into the following steps: a) setting up of Azure SQL Database, b) ensuring connection between the local DB and the cloud data in the Azure SQL database, c) comparing schemas of local and cloud DB and d) migrating
 
@@ -139,7 +147,17 @@ Initialy, the UK server is set as the primary server and the US as the secondary
 
 ### Milestone 6
 
-It is imperative that one ensures that 
+The migration is completed, it is time that business presents the front-end PowerBI reports based on the data to the business. Some staff require further access to Azure based resources or be able to read the database and give their own insights. It then becomes imperative for the cloud engineer to manage the security of user identities and their access to the relevant resources on the cloud. As part of security and access management, the `Microsoft Entra ID` access provides user authentication, authorization and access management. This milestone aims at integrating Microsoft Entra Directory with the Azure SQL Database. Firstly, it begins by developing first an admin account that oversees the entire production database. and restricting users to `read-only` access to the database. Secondly, it will also set up a seperate database reader account, allowing users to read but not modify data. This is crucial in a production setting where accuracy is key. Restricted access prevents accidental changes, ensuring the team gets needed insights safely.
+
+
+* **Configure Microsoft Entra ID for Azure SQL Database** : first, the Microsoft Entra ID authentication was setup for the SQL Server hosting the Azure SQL production database. A seperate account with admin priveleges was setup. The following was confirmed by connecting the production database using Microsoft Entra credentials in Azure Data Studio. The sample of the accomplished task is shown below.
+
+![Alt text](img/entra_admin.png)
+
+
+* **Setting Up The Read-Only Database and Connecting to Azure Data Studio** : to commence the process, a new user account was generated in Microsoft Entra ID, serving as the DB Reader user. In Azure Data Studio, the connection to the production database was established using the Microsoft Entra admin credentials. Following this, the db_datareader role was assigned to the previously generated DB Reader User, granting them read-only privileges. Subsequently, there was a reconnection to the production database using Azure Data Studio and the credentials of the new DB Reader AD user. A test of the user's permissions was conducted to verify that the correct role had been assigned. This is shown below.
+
+![Alt text](img/EntraID-Evidence.png)
 
 
 ## License 📛 
