@@ -8,7 +8,7 @@ Shifting data from one source to another (A to B) is an example of a data migrat
 
 A common migration process involves shifting data from on-premise to a cloud service. Several cloud providers offer superior data handling stratergies alongside security and access control. These services provide a much more attractive solution to companies then to developing on-hand softwares and tools which can be heavily involved and may waste companies resources and time since alot of it will be 'reinventing the wheel'
  
-The following project simulates a typical migration scenerio. It mimics migration to Azure Cloud services. The project is broken into 8 milestones. Each covering topics such as Azure Virtual Machine, Azure Entra ID for access control, Geo-replication and failover testing for backup security and Microsoft Entra ID for user access control. The entire architecture of the cloud model developed in this project is shown below.
+The following project simulates a typical migration scenerio. It mimics migration to Azure Cloud services. The project is broken into six milestones. Each covering topics such as Azure Virtual Machine, Azure Entra ID for access control, Geo-replication and failover testing for backup security and Microsoft Entra ID for user access control. The entire architecture of the cloud model developed in this project is shown below.
 
 
 ## Cloud Architecture
