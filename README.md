@@ -160,6 +160,16 @@ The migration is completed, it is time that business presents the front-end Powe
 
 ![Alt text](img/EntraID-Evidence.png)
 
+### Lessons Learned From the Project
+
+With limited experience in cloud services, the project faced a major issue in our rising costs due to unused resources and inefficient provisioning. The unpredictable workload made it hard to estimate resource needs, leading to overspending.
+
+To tackle this, the option of auto-scaling was explored. This adjusted resources based on demand. By setting up auto-scaling policies, it was found that the system scaled up during busy times and scaled down during quiet periods. This not only boosted efficiency but also cut costs significantly during off-peak hours.
+
+Throughout the project, the pricing model and reserved instances for workloads regularly reviewed and optimized. This strategic approach, combined with continuous monitoring, helped us find a balance between performance and cost-effectiveness.
+
+These measures allowed the project to achieve substantial cost savings without compromising performance or scalability. This experience emphasized the importance of ongoing cost management and the need to adapt strategies based on changing workload patterns in a dynamic cloud environment.
+
 
 ## License 📛 
 
